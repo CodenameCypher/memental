@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "553934274931",
+    "project_id": "memental-aa210",
+    "storage_bucket": "memental-aa210.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553934274931:android:34788d0a8592ddde2a4506",
+        "android_client_info": {
+          "package_name": "com.memental.memental"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553934274931-g7ucdtufko5r2h341tvigfn08m3djhqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOZSYgvEaGyr5vL043_aZcVdUA6jvaA8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553934274931-g7ucdtufko5r2h341tvigfn08m3djhqo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
