@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:memental/model/user.dart';
+import 'package:memental/screens/appointment/appointment_book.dart';
+import 'package:memental/screens/home/profile.dart';
 import 'package:memental/screens/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -17,11 +20,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<User?>.value(
+    return StreamProvider<UserModel?>.value(
       initialData: null,
       value: AuthService().user,
       child: MaterialApp(
-        home: Wrapper(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => Wrapper(),
+          '/profile': (context) => Profile(),
+          '/appointment': (context) => AppointmentBooking(),
+        },
       ),
     );
   }

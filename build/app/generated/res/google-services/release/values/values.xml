@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">553934274931-g7ucdtufko5r2h341tvigfn08m3djhqo.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">553934274931</string>
+    <string name="google_api_key" translatable="false">AIzaSyAOZSYgvEaGyr5vL043_aZcVdUA6jvaA8I</string>
+    <string name="google_app_id" translatable="false">1:553934274931:android:34788d0a8592ddde2a4506</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAOZSYgvEaGyr5vL043_aZcVdUA6jvaA8I</string>
+    <string name="google_storage_bucket" translatable="false">memental-aa210.appspot.com</string>
+    <string name="project_id" translatable="false">memental-aa210</string>
+</resources>

@@ -1,15 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:memental/model/user.dart';
+import 'package:memental/services/database.dart';
 
 class AuthService{
   final _auth = FirebaseAuth.instance;
 
-  UserModel _userFromFirebaseUser(String email, String password, String name, String role, bool isActivated, String uid) {
-      return UserModel(email: email, password: password, name: name, role: role, isActivated: isActivated, uid: uid);
+  UserModel _userFromFirebaseUser(String email, String password, String name, String role, String number, String age, String speciality, bool isActivated, String uid) {
+      return UserModel(email: email, password: password, name: name, role: role,speciality: speciality,age: age, number: number, isActivated: isActivated, uid: uid);
   }
 
-  Stream<User?> get user{
-    return _auth.authStateChanges();
+  Future<UserModel?> _userStreamToUserModel(User? user) async{
+    return user != null? DatabaseService().getUserData(user.uid) : null;
+  }
+
+  Stream<UserModel?> get user{
+    return _auth.authStateChanges().asyncMap(_userStreamToUserModel);
   }
 
   Future signIn(String email, String password) async{
@@ -23,10 +28,13 @@ class AuthService{
     }
   }
 
-  Future register (String email, String password, String name, String role, bool isActivated) async {
+  Future register (String email, String password, String name, String role, String number, String age, String speciality, bool isActivated) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      return result.user != null? _userFromFirebaseUser(email, password, name, role, isActivated, result.user!.uid) : null;
+      String uid = result.user!.uid.toString();
+      DatabaseService().updateUserData(uid,  password,  name,  role,  number,  age,  speciality,  email, isActivated);
+
+      return result.user != null? _userFromFirebaseUser(email, password, name, role, number, age, speciality, isActivated, result.user!.uid) : null;
     }catch(e){
       print(e.toString());
       return null;

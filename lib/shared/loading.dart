@@ -16,14 +16,6 @@ class LoadingScreen extends StatelessWidget {
               color: Colors.green[900],
               size: 120,
             ),
-            SizedBox(height: 20,),
-            Text(
-                'Loading...',
-              style: TextStyle(
-                color: Colors.green[900],
-                fontSize: 20
-              ),
-            )
           ],
         )
       ),
