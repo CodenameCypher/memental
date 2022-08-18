@@ -1,6 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:memental/model/user.dart';
+import 'package:memental/screens/appointment_doctors/appointmentDoctor_View.dart';
+import 'package:memental/screens/emergency/emergency.dart';
+import 'package:memental/screens/home/home_patient_news.dart';
+import 'package:memental/screens/reminders_doctor/reminderDoctorView.dart';
 import 'package:memental/services/auth.dart';
 import 'package:memental/services/database.dart';
 import 'package:memental/shared/loading.dart';
@@ -19,11 +23,11 @@ class _DoctorHomeState extends State<DoctorHome> {
   int _currentIndex = 0;
 
   List<Widget> _widgetList = [
-    Text('Hey, its home'),
-    Text('Hey, its Doctors'),
-    Text('Hey, its Appointments'),
-    Text('Hey, its Calendar'),
-    Text('Hey, its Emergency'),
+    PatientHomeNews(),
+    AppointmentsDoctor(),
+    ReminderDoctor(),
+    Text('Hey, its blogs'),
+    EmergencyHospitals(),
   ];
 
   @override
@@ -75,7 +79,7 @@ class _DoctorHomeState extends State<DoctorHome> {
 
 
 
-      body: Text('Its doctor home'),
+      body: _widgetList.elementAt(_currentIndex),
 
 
 
@@ -87,16 +91,16 @@ class _DoctorHomeState extends State<DoctorHome> {
               label: 'Home'
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_add_alt),
-              label: 'Doctors'
-          ),
-          BottomNavigationBarItem(
               icon: Icon(Icons.calendar_month_outlined),
               label: 'Appointments'
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.schedule_outlined),
               label: 'Reminders'
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.note_alt),
+              label: 'Blogs'
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.emergency_outlined),

@@ -10,7 +10,6 @@ class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final user = Provider.of<UserModel?>(context);
     // listen to auth changes and show home/authenticate
     return user != null ? Home(userModel: user) : Authenticate();

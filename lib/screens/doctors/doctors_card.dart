@@ -39,13 +39,6 @@ class DoctorsCard extends StatelessWidget {
                   ),
 
                 ),
-                trailing: IconButton(
-                  color: Colors.grey[600],
-                  onPressed: () {
-                  },
-                  icon: Icon(Icons.phone),
-                  splashColor: Colors.greenAccent[100],
-                ),
               ),
             ),
             back: Container(
@@ -53,36 +46,23 @@ class DoctorsCard extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 color: Colors.white,
               ),
-              padding: EdgeInsets.fromLTRB(6.0, 13.0, 6.0, 12.0),
+              padding: EdgeInsets.fromLTRB(6.0, 11.0, 6.0, 20.0),
               margin: EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 0.0),
               child: ListTile(
-                leading: CircleAvatar(
-                  radius: 25,
-                  backgroundColor: Colors.white,
-                  backgroundImage: NetworkImage('https://cdn-icons-png.flaticon.com/512/1085/1085413.png'),
-                ),
-                title: Text(
-                  "Number: ${doctor.number}",
-                  style: TextStyle(
-                      fontFamily: 'Formal',
-                      color: Colors.black
-                  ),
-                ),
-                subtitle: Text(
-                  'Email: ' + doctor.email,
-                  style: TextStyle(
-                      fontFamily: 'Formal',
-                      color: Colors.grey[800],
-                      height: 1.4
-                  ),
-
-                ),
-                trailing: IconButton(
-                  color: Colors.grey[600],
+                title: RaisedButton(
+                  color: Colors.grey[200],
                   onPressed: () {
                     Navigator.pushNamed(context, '/appointment', arguments: doctor);
                   },
-                  icon: Icon(Icons.add),
+                  child: Center(
+                    child:Text(
+                        "Add Appointment",
+                      style: TextStyle(
+                        fontFamily: 'Formal',
+                        fontSize: 20
+                      ),
+                    )
+                  ),
                   splashColor: Colors.greenAccent[100],
                 ),
               ),

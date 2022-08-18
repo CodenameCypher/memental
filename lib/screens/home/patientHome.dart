@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:memental/model/user.dart';
 import 'package:memental/screens/appointment/appointment_view.dart';
 import 'package:memental/screens/doctors/doctors_view.dart';
+import 'package:memental/screens/home/home_patient_news.dart';
+import 'package:memental/screens/reminders/reminderView.dart';
 import 'package:memental/services/auth.dart';
 import 'package:memental/services/database.dart';
 import 'package:memental/shared/loading.dart';
@@ -22,16 +24,16 @@ class _PatientHomeState extends State<PatientHome> {
   int _currentIndex = 0;
 
   List<Widget> _widgetList = [
-    Text('Hey, its home'),
+    PatientHomeNews(),
     Doctors(),
     Appointments(),
-    Text('Hey, its Calendar'),
+    Reminder(),
     EmergencyHospitals(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return loading? LoadingScreen() : Scaffold(
+    return Scaffold(
       backgroundColor: Colors.greenAccent[100],
 
       appBar: AppBar(

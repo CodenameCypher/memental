@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:memental/model/user.dart';
 import 'package:memental/screens/appointment/appointment_book.dart';
+import 'package:memental/screens/appointment_doctors/prescriptionView.dart';
 import 'package:memental/screens/home/profile.dart';
 import 'package:memental/screens/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => Wrapper(),
           '/profile': (context) => Profile(),
           '/appointment': (context) => AppointmentBooking(),
+          '/prescribe' : (context) => Prescribe(),
         },
       ),
     );

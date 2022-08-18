@@ -16,7 +16,6 @@ class _AppointmentListState extends State<AppointmentList> {
   @override
   Widget build(BuildContext context) {
     final List<Appointment> appointments = Provider.of<List<Appointment>>(context);
-    appointments.forEach((element) {print(element.uid);});
 
     return appointments.length == 0 ? LoadingScreen() : ListView.builder(
       itemCount: appointments.length,
