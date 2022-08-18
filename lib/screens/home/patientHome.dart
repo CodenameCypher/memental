@@ -49,6 +49,7 @@ class _PatientHomeState extends State<PatientHome> {
         actions: [
           IconButton(
             onPressed: () {
+              Navigator.pushNamed(context, '/blogs');
             },
             tooltip: 'Blogs',
             icon: Icon(

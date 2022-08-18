@@ -244,7 +244,7 @@ com.google.firebase.auth.internal.bro...
 LEGACY
 CUSTOM_ACTION
 TLS_ECDHE_PSK_WITH_CHACHA20_POLY1305_...
-3.4.2
+3.4.4
 MODULE_ID
 PLAINTEXT
 NO_ACTIVITY
@@ -1032,6 +1032,7 @@ field_
 modeCase_
 includeSubdomains
 org.eclipse.jetty.alpn.ALPN
+3.6.3
 FirestoreCallCredentials
 github.com
 INVALID_EMAIL
@@ -1064,7 +1065,6 @@ ERROR_WEB_INTERNAL_ERROR
 TINK
 namePrefix
 GLOBAL
-3.6.1
 ERROR_DYNAMIC_LINK_NOT_ACTIVATED
 severity
 io.flutter.embedding.android.NormalTheme
@@ -1841,10 +1841,10 @@ kotlinx.coroutines.scheduler.keep.ali...
 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 CompanionObject
 secondaryActivityStack.activities
-1.20.0
 androidx.browser.customtabs.extra.NAV...
 %8s
 pending_intent
+1.20.1
 UNIMPLEMENTED
 zoomIn
 streamId_

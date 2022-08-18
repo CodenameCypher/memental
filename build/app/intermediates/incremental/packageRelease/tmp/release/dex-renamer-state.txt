@@ -1,4 +1,4 @@
-#Mon Aug 08 22:09:06 BDT 2022
+#Thu Aug 18 21:38:15 BDT 2022
 base.0=G\:\\11th Semester\\CSE470\\Project\\Memental-Flutter-Applicaton\\memental\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
