@@ -2,6 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:memental/model/user.dart';
 import 'package:memental/screens/appointment_doctors/appointmentDoctor_View.dart';
+import 'package:memental/screens/blogs/blogListView.dart';
+import 'package:memental/screens/blogs/blogView.dart';
+import 'package:memental/screens/blogs/blogViewDoctor.dart';
 import 'package:memental/screens/emergency/emergency.dart';
 import 'package:memental/screens/home/home_patient_news.dart';
 import 'package:memental/screens/reminders_doctor/reminderDoctorView.dart';
@@ -26,7 +29,7 @@ class _DoctorHomeState extends State<DoctorHome> {
     PatientHomeNews(),
     AppointmentsDoctor(),
     ReminderDoctor(),
-    Text('Hey, its blogs'),
+    BlogViewDoctor(),
     EmergencyHospitals(),
   ];
 
@@ -47,6 +50,16 @@ class _DoctorHomeState extends State<DoctorHome> {
         ),
         elevation: 2,
         actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/suggestion');
+            },
+            tooltip: 'Suggestions',
+            icon: Icon(
+              Icons.stars,
+              color: Colors.green[900],
+            ),
+          ),
           IconButton(
             onPressed: () async{
               setState(() {

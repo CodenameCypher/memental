@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:memental/model/appointment.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppointmentCard extends StatelessWidget {
   final Appointment appointment;
@@ -75,7 +76,11 @@ class AppointmentCard extends StatelessWidget {
                           ),
                         ),
                         trailing: appointment.approval == false ? SizedBox(height: 0,) : IconButton(
-                            onPressed: (){},
+                            onPressed: () async{
+                              await launchUrl(
+                                  Uri(path: "+88${snapshot.requireData.get('number')}", scheme: 'tel')
+                              );
+                            },
                             icon: Icon(Icons.phone)
                         ) ,
                       ),

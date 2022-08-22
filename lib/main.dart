@@ -6,8 +6,10 @@ import 'package:memental/screens/appointment_doctors/prescriptionView.dart';
 import 'package:memental/screens/blogs/blogView.dart';
 import 'package:memental/screens/blogs/blogWrite.dart';
 import 'package:memental/screens/home/profile.dart';
+import 'package:memental/screens/suggestions/suggestionAdd.dart';
 import 'package:memental/screens/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:memental/screens/suggestions/suggestionView.dart';
 import 'package:provider/provider.dart';
 import 'package:memental/services/auth.dart';
 
@@ -35,6 +37,8 @@ class MyApp extends StatelessWidget {
           '/prescribe' : (context) => Prescribe(),
           '/blogs' : (context) => BlogView(),
           '/addBlog': (context) => NewBlog(),
+          '/suggestion': (context) => SuggestionView(),
+          '/addSuggestion': (context) => AddSuggestion(),
         },
       ),
     );
