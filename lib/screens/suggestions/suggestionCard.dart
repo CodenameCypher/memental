@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:memental/model/suggestion.dart';
+import 'package:memental/services/reminderDatabase.dart';
+import 'package:memental/model/reminder.dart';
 
 class SuggestionCard extends StatefulWidget {
   final Suggestion suggestions;
@@ -11,6 +14,8 @@ class SuggestionCard extends StatefulWidget {
 }
 
 class _SuggestionCardState extends State<SuggestionCard> {
+  bool starred = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,6 +64,21 @@ class _SuggestionCardState extends State<SuggestionCard> {
                     ),
                   ],
                 ),
+              ),
+              trailing: IconButton(
+                onPressed: () async{
+                  setState(() {
+                    starred = true;
+                  });
+                  Reminder reminder = Reminder(
+                      userUID: FirebaseAuth.instance.currentUser!.uid,
+                      subject: '${widget.suggestions.type} - ${widget.suggestions.name}',
+                      startTime: DateTime.now(),
+                      endTime: DateTime.now().add(Duration(minutes: int.parse(widget.suggestions.duration)))
+                  );
+                  await ReminderDatabase().createReminder(reminder);
+                },
+                icon: starred ? Icon(Icons.star) : Icon(Icons.star_border),
               ),
             ),
           ),

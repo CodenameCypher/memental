@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:memental/model/appointment.dart';
 import 'package:memental/model/user.dart';
+import 'package:memental/screens/reminders/reminderView.dart';
 import 'package:memental/services/appointmentDatabase.dart';
+import 'package:memental/services/reminderDatabase.dart';
 import 'package:memental/shared/loading.dart';
+import 'package:memental/model/reminder.dart' as modelReminder;
 
 class AppointmentBooking extends StatefulWidget {
   const AppointmentBooking({Key? key}) : super(key: key);
@@ -183,7 +186,14 @@ class _AppointmentBookingState extends State<AppointmentBooking> {
               disease: this.disease,
               done: false,
           );
+          modelReminder.Reminder reminder = modelReminder.Reminder(
+            userUID: FirebaseAuth.instance.currentUser!.uid,
+            subject: 'Appointment of ${this.disease}',
+            startTime: this.date,
+            endTime: this.date.add(Duration(minutes: 60))
+          );
           await AppointmentDatabase().createAppointment(appointment);
+          await ReminderDatabase().createReminder(reminder);
           setState(() {
             loading = false;
           });

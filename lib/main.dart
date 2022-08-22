@@ -4,6 +4,7 @@ import 'package:memental/model/user.dart';
 import 'package:memental/screens/appointment/appointment_book.dart';
 import 'package:memental/screens/appointment/prescriptionView.dart';
 import 'package:memental/screens/appointment_doctors/prescriptionView.dart';
+import 'package:memental/screens/appointment_doctors/reminderAddView.dart';
 import 'package:memental/screens/blogs/blogView.dart';
 import 'package:memental/screens/blogs/blogWrite.dart';
 import 'package:memental/screens/home/profile.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           '/suggestion': (context) => SuggestionView(),
           '/addSuggestion': (context) => AddSuggestion(),
           '/viewPresciption' : (context) => PrescriptionView(),
+          '/addReminder': (context) => ReminderAdd(),
         },
       ),
     );

@@ -83,12 +83,24 @@ class _AppointmentCardDoctorState extends State<AppointmentCardDoctor> {
                         ),
                       ),
                       trailing: widget.appointment.dateTime.compareTo(DateTime.now()) < 0? Icon(Icons.update_outlined) : widget.appointment.approval ?
-                      IconButton(
-                        onPressed: (){
-                          Navigator.pushNamed(context, '/prescribe', arguments: widget.appointment);
-                        },
-                        icon: Icon(Icons.edit_calendar_sharp),
-                        tooltip: 'Write Prescription',
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/prescribe', arguments: widget.appointment);
+                            },
+                            icon: Icon(Icons.edit_calendar_sharp),
+                            tooltip: 'Write Prescription',
+                          ),
+                          IconButton(
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/addReminder', arguments: widget.appointment);
+                            },
+                            icon: Icon(Icons.more_time_rounded),
+                            tooltip: 'Add Reminder',
+                          )
+                        ],
                       ) : IconButton(
                         icon: Icon(Icons.check_circle_outline),
                         tooltip: 'Approve',
