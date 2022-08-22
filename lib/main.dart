@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:memental/model/user.dart';
 import 'package:memental/screens/appointment/appointment_book.dart';
+import 'package:memental/screens/appointment/prescriptionView.dart';
 import 'package:memental/screens/appointment_doctors/prescriptionView.dart';
 import 'package:memental/screens/blogs/blogView.dart';
 import 'package:memental/screens/blogs/blogWrite.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
           '/addBlog': (context) => NewBlog(),
           '/suggestion': (context) => SuggestionView(),
           '/addSuggestion': (context) => AddSuggestion(),
+          '/viewPresciption' : (context) => PrescriptionView(),
         },
       ),
     );

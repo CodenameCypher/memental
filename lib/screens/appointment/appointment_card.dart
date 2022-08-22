@@ -75,14 +75,38 @@ class AppointmentCard extends StatelessWidget {
                               height: 1.4
                           ),
                         ),
-                        trailing: appointment.approval == false ? SizedBox(height: 0,) : IconButton(
+                        trailing: appointment.approval == false ? SizedBox(height: 0,) : appointment.prescription == "" ?
+                        IconButton(
                             onPressed: () async{
                               await launchUrl(
                                   Uri(path: "+88${snapshot.requireData.get('number')}", scheme: 'tel')
                               );
                             },
+                            tooltip: 'Call Doctor',
                             icon: Icon(Icons.phone)
-                        ) ,
+                        )
+                            :
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                                onPressed: () async{
+                                  await launchUrl(
+                                      Uri(path: "+88${snapshot.requireData.get('number')}", scheme: 'tel')
+                                  );
+                                },
+                                tooltip: 'Call Doctor',
+                                icon: Icon(Icons.phone)
+                            ) ,
+                            IconButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/viewPresciption',arguments: appointment);
+                                },
+                                tooltip: 'Show Prescription',
+                                icon: Icon(Icons.note_alt)
+                            ),
+                          ],
+                        )
                       ),
                     ),
                   direction: FlipDirection.VERTICAL,
